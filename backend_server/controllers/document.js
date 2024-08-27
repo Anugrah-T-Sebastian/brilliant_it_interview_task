@@ -1,16 +1,13 @@
-import path from "path";
-import multer from "multer";
-import { fileURLToPath } from "url";
-
-// Set up __dirname for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const path = require("path");
+const multer = require("multer");
+const { fileURLToPath } = require("url");
+const { StatusCodes } = require("http-status-codes");
 
 // Configure multer storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     // Set the destination for uploaded files
-    cb(null, path.join(__dirname, "../documents"));
+    cb(null, path.join(__dirname, "../uploaded_documents"));
   },
   filename: (req, file, cb) => {
     // Set the file name, keeping the original name
@@ -40,13 +37,18 @@ const upload = multer({
 });
 
 // Controller to handle file upload
-export const uploadFile = (req, res) => {
+const uploadFile = (req, res) => {
+  console.log("Got file upload request");
   upload.single("file")(req, res, (err) => {
     if (err) {
-      return res.status(400).send({ message: err.message });
+      return res.status(StatusCodes.BAD_REQUEST).send({ message: err.message });
     }
 
     // If file upload is successful
-    res.send({ message: "File uploaded successfully!", file: req.file });
+    res
+      .status(StatusCodes.OK)
+      .send({ message: "File uploaded successfully!", file: req.file });
   });
 };
+
+module.exports = { uploadFile };
