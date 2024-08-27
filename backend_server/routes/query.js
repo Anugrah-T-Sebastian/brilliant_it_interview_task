@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const { uploadFile } = require("../controllers/document");
+const { queryResponse } = require("../controllers/query");
 
-router.post("/", uploadFile);
+router.post("/", queryResponse);
 router.get("/", (req, res) => {
-  res.send("Server is running");
+  res.send("Query Server is running");
 });
 
 module.exports = router;

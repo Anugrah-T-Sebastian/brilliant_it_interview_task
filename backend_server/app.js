@@ -6,12 +6,16 @@ const express = require("express");
 const app = express();
 
 const documentRouter = require("./routes/document");
+const queryRouter = require("./routes/query");
+const addPineconeIndex = require("./middleware/PineconeClient");
 
 app.use(express.json());
 app.use(cors());
+app.use(addPineconeIndex);
 
 //routes
-app.use("/api/v1", documentRouter);
+app.use("/api/v1/upload", documentRouter);
+app.use("/api/v1/query", queryRouter);
 
 const port = process.env.PORT || 3003;
 
