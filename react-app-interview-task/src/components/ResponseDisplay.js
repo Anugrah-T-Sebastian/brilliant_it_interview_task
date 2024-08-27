@@ -2,19 +2,22 @@ import React from "react";
 
 const ResponseDisplay = ({ response }) => {
   if (!response) return null;
+  console.log(response);
 
   return (
     <div>
-      <h4>Server Response</h4>
+      <h5>LLM Response</h5>
       {response.error ? (
-        <p style={{ color: "red" }}>{response.error}</p>
+        <p className="answer-message" style={{ color: "red" }}>
+          {response.error}
+        </p>
       ) : (
         <div>
-          <p>
+          {/* <p>
             <strong>Message:</strong> {response.message}
-          </p>
-          <p>
-            <strong>Answer:</strong> {response.answer}
+          </p> */}
+          <p className="answer-message">
+            <strong>Answer:</strong> {response.res.text}
           </p>
         </div>
       )}

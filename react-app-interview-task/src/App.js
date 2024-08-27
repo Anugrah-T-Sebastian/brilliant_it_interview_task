@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>File Upload & QA system</h2>
+        <h2>File Upload & RAG QA system</h2>
         <FileUpload />
         <QuestionForm onResponse={handleResponse} />
         <ResponseDisplay response={response} />

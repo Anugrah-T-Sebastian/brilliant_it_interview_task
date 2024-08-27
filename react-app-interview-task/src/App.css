@@ -34,7 +34,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 30rem;
+  /* width: 30rem; */
   height: 10rem;
 }
 
@@ -50,6 +50,10 @@
   color: #777;
 }
 
+.file-upload-message {
+  font-size: medium;
+}
+
 button {
   padding: 10px 20px;
   background-color: #007bff;
@@ -61,4 +65,8 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.answer-message {
+  font-size: medium;
 }

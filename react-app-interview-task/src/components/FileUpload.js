@@ -22,7 +22,7 @@ const FileUpload = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/upload",
+        "http://localhost:3003/api/v1/upload",
         formData,
         {
           headers: {
@@ -84,7 +84,7 @@ const FileUpload = () => {
         </label>
       </div>
       <button onClick={onFileUpload}>Upload</button>
-      {message && <p>{message}</p>}
+      {message && <p className="file-upload-message">{message}</p>}
     </div>
   );
 };

@@ -13,7 +13,7 @@ const QuestionForm = ({ onResponse }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/query", {
+      const response = await axios.post("http://localhost:3003/api/v1/query", {
         question,
       });
       onResponse(response.data);
@@ -27,7 +27,7 @@ const QuestionForm = ({ onResponse }) => {
 
   return (
     <div>
-      <h4>Ask a Question</h4>
+      <h5>Ask a Question</h5>
       <form
         onSubmit={handleSubmit}
         style={{ display: "flex", alignItems: "center" }}
