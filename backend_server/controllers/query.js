@@ -45,7 +45,7 @@ const queryPineconeVectorStoreandQueryLLM = async ({
   }
 };
 
-// Handle the query response
+// Controller to handle the query response
 const queryResponse = async (req, res) => {
   const { question } = req.body;
   console.log("Received question:", question);

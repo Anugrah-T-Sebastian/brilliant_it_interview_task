@@ -9,7 +9,7 @@ const ResponseDisplay = ({ response }) => {
       <h5>LLM Response</h5>
       {response.error ? (
         <p className="answer-message" style={{ color: "red" }}>
-          {response.error}
+          {response.error.error}
         </p>
       ) : (
         <div>

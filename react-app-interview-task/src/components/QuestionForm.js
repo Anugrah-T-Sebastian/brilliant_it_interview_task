@@ -19,7 +19,8 @@ const QuestionForm = ({ onResponse }) => {
       onResponse(response.data);
     } catch (error) {
       console.error("There was an error submitting the question!", error);
-      onResponse({ error: "Error submitting the question." });
+      const message = JSON.parse(error.request.response);
+      onResponse({ error: message });
     } finally {
       setLoading(false);
     }

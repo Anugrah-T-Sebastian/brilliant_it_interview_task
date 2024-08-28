@@ -3,6 +3,7 @@ require("express-async-errors");
 
 const cors = require("cors");
 const express = require("express");
+const rateLimiter = require("express-rate-limit");
 const app = express();
 
 const documentRouter = require("./routes/document");
